@@ -38,7 +38,7 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
     const construirString => (product: IProduct) => `valor-padrao-x-${product.id}`;
 
     // ArquivoB
-    const construirString => (category: ICategory) => `valor-padrao-x-${categori.id}`;
+    const construirString => (category: ICategory) => `valor-padrao-x-${category.id}`;
     ```
 
     **O que fazer:**
