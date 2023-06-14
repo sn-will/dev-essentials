@@ -43,7 +43,7 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
 
     **O que fazer:**
     ```javascript
-    // Arquivo com constants ou utils
+    // ArquivoC com constants ou utils
     const valorPadraoX = 'valor-padrao-x';
 
     // ArquivoA
