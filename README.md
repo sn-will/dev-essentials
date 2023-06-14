@@ -33,7 +33,6 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
     Um bom exemplo para isso é evitar passar valores diretamente nos arquivos e criar constantes e enums para valores que são utilizados em mais de um local:
 
     **O que não fazer:**
-
     ```javascript
     // ArquivoA
     const construirString => (product: IProduct) => `valor-padrao-x-${product.id}`;
@@ -43,8 +42,6 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
     ```
 
     **O que fazer:**
-
-    
     ```javascript
     // Arquivo com constants ou utils
     const valorPadraoX = 'valor-padrao-x';
@@ -62,6 +59,30 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
 
 - Evitar bugs: existe a possibilidade deste código quebrar? O que acontece se os valores que estou esperando não chegarem? Apesar do `Typescript` nos ajudar com possíveis valores indefinidos é extremamente necessário fazermos uma análise dos possíveis efeitos colaterais do que estamos criando/alterado.
     
-    Não esquecer de criar `try {} catches {}` para as requisições (caso a API fique fora do ar) e não consultar propriedades em objetos que possam ser indefinidos, são bons exemplos de práticas para evitar bugs
+    Não esquecer de criar `try {} catches {}` para as requisições (caso a API fique fora do ar) e não consultar propriedades em objetos que possam ser indefinidos, são bons exemplos de práticas para evitar erros:
+
+    **O que não fazer:**
+    ```javascript
+    const objetoA => {
+        propA: { value: 'valueA' },
+        propB: { value: 'valueB' },
+        propC: { value: 'valueC' }
+    };
+
+    // Valores diferentes de propA, propB ou propC serão undefined
+    const usarObjeto = (key) => objetoA[key].value
+    ```
+
+    **O que fazer:**
+    ```javascript
+    const objetoA => {
+        propA: { value: 'valueA' },
+        propB: { value: 'valueB' },
+        propC: { value: 'valueC' }
+    };
+
+    // Verificar se a propriedade existe no objeto, caso não retornar um default
+    const usarObjeto = (key) => objetoA[key]?.value || objetoA.propA.value
+    ```
 
 - Insistir na melhor solução, não se dar por satisfeito em apenas resolver o problema.
