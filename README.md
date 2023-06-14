@@ -30,7 +30,7 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
 
 - Manutenção: o código que estou escrevendo esta modular o suficiente? Se algum dos valores mudar ele vai continuar funcionando? Quais locais serão preciso alterar caso os dados de entrada mudem? O quão simples será a manutenção dele?
 
-    Um bom exemplo para isso é evitar passar valores diretamente nos arquivos e criar constantes e enums para valores que são utilizados em mais de um local:
+    Um bom exemplo é evitar passar valores diretamente nos arquivos e criar constantes e enums para valores que são utilizados em mais de um local:
 
     **O que não fazer:**
     ```javascript
@@ -47,11 +47,11 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
     const valorPadraoX = 'valor-padrao-x';
 
     // ArquivoA
-    import { valorPadraoX } from 'constants';
+    import { valorPadraoX } from 'ArquivoC';
     const construirString => (product: IProduct) => `${valorPadraoX}-${product.id}`;
 
     // ArquivoB
-    import { valorPadraoX } from 'constants';
+    import { valorPadraoX } from 'ArquivoC';
     const construirString => (category: ICategory) => `${valorPadraoX}-${categori.id}`;
     ```
 
