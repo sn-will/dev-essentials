@@ -52,7 +52,7 @@ O que a gente espera de um dev é que ele tenha a consciência de que para todo 
 
     // ArquivoB
     import { valorPadraoX } from 'ArquivoC';
-    const construirString => (category: ICategory) => `${valorPadraoX}-${categori.id}`;
+    const construirString => (category: ICategory) => `${valorPadraoX}-${category.id}`;
     ```
 
     Isso facilita a manutenção porque o `valorPadraoX` será alterado em um só local.
